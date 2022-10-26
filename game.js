@@ -6,6 +6,8 @@ let seconds,timer;
 let $num1 = document.getElementById("number1");
 let $num2 = document.getElementById("number2");
 let $num3 = document.getElementById("number3");
+let $timer = document.getElementById("timer");
+let $score = document.getElementById("score");
 let score = 0;
 let operatorList = ["+", "-", "*", "/", "%"];
 
@@ -30,8 +32,9 @@ function setRandom() {
     if(isNaN(num3)){
         setRandom();
     }
-    console.log({num1,num2,num3,operator})
+    // console.log({num1,num2,num3,operator})
     $num3.innerText = num3;
+    $score.innerText=score;
     resetTimer()
 }
 
@@ -69,10 +72,10 @@ document.getElementById("buttons").onclick = (e) => {
 // Iteration 7: Making Timer functional
 function setTimer(){
     seconds=20
-    document.getElementById("timer").innerText = seconds;
+    $timer.innerText = seconds;
     seconds--
     timer=setInterval(() => {
-        document.getElementById("timer").innerText = seconds;
+        $timer.innerText = seconds;
         if (seconds > 0) {
             seconds--;
         } else {
